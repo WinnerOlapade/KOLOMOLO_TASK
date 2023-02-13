@@ -18,6 +18,8 @@ Decorators can be used to add functionality to an existing function without modi
 @classmethod, on the other hand, is used to define a method that operates on the class itself rather than on instances of the class. It takes a special first argument conventionally named cls, which refers to the class object itself. This allows the method to access and modify the class's attributes or call other class methods.
 * “with” keyword helps to makes the code cleaner and more readable but more important use is to simplify file management by ensuring that files are always properly closed automatically when block is exited.
 
+
+
 ## Problem Solving
 This *[folder](https://github.com/WinnerOlapade/KOLOMOLO_TASK/tree/master/problem_solving/)* contains corrected *[problem_solving.py](https://github.com/WinnerOlapade/KOLOMOLO_TASK/tree/master/problem_solving/problem_solving.py)* code
 * Problem: File/code execution. the code refused to execute because the "if" statement in “line 41” ( "if __name__ == "main”:" ) wasn’t formatted properly.
@@ -38,6 +40,7 @@ for thread in threads:
     thread.join()
 ``` 
 to wait for thread to finish before proceeding so that "number of people created" is printed always at the very end.
+
 
 
 ## Create something whilst learning something new
@@ -80,6 +83,7 @@ curl -X POST -H "Content-Type: application/json" -d '{"first_name":"John", "age"
 
 To make a GET Request simply click link or copy and paste link in browser and edit 
 `{user_id}` with "user id" from making a POST Request or random id (will return error) .
+
 
 
 ## Hanoi Towers
