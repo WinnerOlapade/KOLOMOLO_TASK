@@ -17,7 +17,7 @@ Decorators can be used to add functionality to an existing function without modi
 * @staticmethod is used to define a method that does not depend on the state of the class or instance. It is essentially a regular function that happens to be defined within a class. Because it does not depend on the state of the class or instance, it does not take any special parameters (e.g., self or cls). Instead, it takes only the arguments that are passed to it.
 @classmethod, on the other hand, is used to define a method that operates on the class itself rather than on instances of the class. It takes a special first argument conventionally named cls, which refers to the class object itself. This allows the method to access and modify the class's attributes or call other class methods.
 
-* `.with` keyword is a context manager used in exception handling. Mostly used to simplify file management by ensuring that files are always properly closed automatically when block is exited. When reading or Writing a file in python it ensure that the file stream process doesn’t block other processes if an exception is raised, but terminates properly.
+* `with` keyword is a context manager used in exception handling. Mostly used to simplify file management by ensuring that files are always properly closed automatically when block is exited. When reading or Writing a file in python it ensure that the file stream process doesn’t block other processes if an exception is raised, but terminates properly.
 
 
 
