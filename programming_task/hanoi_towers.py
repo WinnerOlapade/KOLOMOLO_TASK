@@ -1,72 +1,55 @@
-"""
-hanoi_tower() = takes in 6 parameters : num_discs, source, auxiliary1, auxiliary2, destination, stacks
-num_discs = number of discs to be moved
-source = starting stack with all num_discs
-auxiliary1 = first temporary stack
-auxiliary2 = second temporary stack
-destination = final stack where gameis solved
-stacks = a dictionary containing the num_stacks (with keys representing the names and values being lists representing the discs on each stack).
-"""
+def validate_move(start_tower, end_tower, moves, stacks):
+    """Validate the move of the disc to the tower."""
+    if len(stacks[end_tower-1]) > 0 and stacks[start_tower-1][-1] > stacks[end_tower-1][-1]: #this comapres size of disk in starting 
+        print(f"Player moved from Tower {start_tower} to Tower {end_tower},")
+        print(f"Illegal: cannot move from {start_tower} onto  {end_tower}  stacks: {stacks}.")
+        print("Failed! Not all discs were moved to the destination!!!")
+        exit()
+    stacks[end_tower-1].append(stacks[start_tower-1].pop())
 
-
-def hanoi_tower(num_discs, source, auxiliary1, auxiliary2, destination, stacks):
-
-    if num_discs == 1:
-        if len(stacks[destination - 1]) > 0 and stacks[source - 1][-1] > stacks[destination - 1][-1]:
-            print(f"Player Moved from Tower {disc} to Tower  {tower},")
-            print(f"Illegal: cannot move from {disc} onto smaller disc {tower} at step {move} stacks: {stacks}.")
-            print("Failed! Not all discs were moved to the destination !!!")
-            exit()
-        stacks[destination - 1].append(stacks[source - 1].pop())
+def hanoi_tower(given_disc, source, auxiliary1, auxiliary2, destination, stacks):
+    """Move the discs in the game of Hanoi Tower."""
+    if given_disc == 1:
+        validate_move(source, destination, 1, stacks)
         return
 
-    hanoi_tower(num_discs-2, source, auxiliary2, destination, auxiliary1, stacks)
+    hanoi_tower(given_disc-2, source, auxiliary2, destination, auxiliary1, stacks)
 
-    if len(stacks[auxiliary2 - 1]) > 0 and stacks[source - 1][-1] > stacks[auxiliary2 - 1][-1]:
-        print(f"Player Moved from Tower {disc} to Tower  {tower},")
-        print(f"Illegal: cannot move from {disc} onto smaller disc {tower} at step {move} stacks: {stacks}.")
-        print("Failed! Not all discs were moved to the destination !!!")
-        exit()
-    stacks[auxiliary2 - 1].append(stacks[source - 1].pop())
+    validate_move(source, auxiliary2, given_disc, stacks)
+    validate_move(source, destination, given_disc, stacks)
+    validate_move(auxiliary2, destination, given_disc, stacks)
 
-    if len(stacks[destination - 1]) > 0 and stacks[source - 1][-1] > stacks[destination - 1][-1]:
-        print(f"Player Moved from Tower {disc} to Tower  {tower},")
-        print(f"Illegal: cannot move from {disc} onto smaller disc {tower} at step {move} stacks: {stacks}.")
-        print("Failed! Not all discs were moved to the destination !!!")
-        exit()
-    stacks[destination - 1].append(stacks[source - 1].pop())
+    hanoi_tower(given_disc-2, auxiliary1, source, auxiliary2, destination, stacks)
 
-    if len(stacks[destination - 1]) > 0 and stacks[auxiliary2 - 1][-1] > stacks[destination - 1][-1]:
-        print(f"Player Moved from Tower {disc} to Tower  {tower},")
-        print(f"Illegal: cannot move from {disc} onto smaller disc {tower} at step {move} stacks: {stacks}.")
-        print("Failed! Not all discs were moved to the destination !!!")
-        exit()
-    stacks[destination - 1].append(stacks[auxiliary2 - 1].pop())
+def read_input_file(input_file):
+    with open(input_file, 'r') as file:
+        given_disc, given_stacks = map(int, file.readline().split())
 
-    hanoi_tower(num_discs-2, auxiliary1, source, auxiliary2, destination, stacks)
+        moves = []
+        for line in file:
+            start_tower, end_tower = map(int, line.split())
+            moves.append((start_tower, end_tower))
+    return given_disc, given_stacks, moves
 
+def play_hanoi_tower():
+    """Play the Hanoi Tower game with the input file."""
+    input_file = input("Enter filename: ")
+    given_disc, given_stacks, moves = read_input_file(input_file)
 
-print("Welcome to Hanoi Towers !!!")
-print()
-with open(input("Enter input file name: "), 'r') as file:
-    
-    num_discs, num_stacks = map(int, file.readline().split())
-
-    stacks = [[] for _ in range(num_stacks)]
-    for i in range(num_discs, 0, -1):
+    stacks = [[] for _ in range(given_stacks)]
+    for i in range(given_disc, 0, -1):
         stacks[0].append(i)
     print(f"Starting Stack: {stacks}")
 
-    for move, line in enumerate(file, start=2):
-        disc, tower = map(int, line.split())
-        hanoi_tower(1, disc, 6-disc-tower, tower, tower, stacks)
-        print(disc, tower)
-        
-        print(f"Player Moved from Tower {disc} to Tower  {tower},")
-        print(f" New Stack: {stacks}")
-        
-    if len(stacks[-1]) == num_discs:
-        print("Congratulations! You have solved the puzzle !!! :)")
-    else:
-        print("Failed! Not all discs were moved to the destination !!!")
+    for move, (start_tower, end_tower) in enumerate(moves, start=1):
+        hanoi_tower(1, start_tower, 6-start_tower-end_tower, end_tower, end_tower, stacks)
+        print(f"Player moved from Tower {start_tower} to Tower {end_tower},")
+        print(f"New Stack: {stacks}")
+    
 
+
+    if len(stacks[-1]) == given_disc:
+        print("Congratulations! You have solved the puzzle!!! :)")
+    else:
+        print("Failed! Not all discs were moved to the destination!!!")
+play_hanoi_tower()
