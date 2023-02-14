@@ -63,7 +63,9 @@ The Terraform folder **[REST_API](https://github.com/WinnerOlapade/KOLOMOLO_TASK
     - finally deploys the API getting back the output of GET and POST method urls.
 
 
+### POST GET METHOD
 > API POST Method URL: "https://qc9g7i6iyj.execute-api.us-east-1.amazonaws.com/v1/users"
+
 
 **example body:**
 ```
@@ -76,6 +78,7 @@ curl -X POST -H "Content-Type: application/json" -d '{"first_name":"John", "age"
 ```
 
 
+#### API GET METHOD
 > API GET Method URL: "https://qc9g7i6iyj.execute-api.us-east-1.amazonaws.com/v1/{user_id}"
 
 To make a GET Request simply click link or copy and paste link in browser and edit 
