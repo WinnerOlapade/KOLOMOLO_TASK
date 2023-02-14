@@ -2,11 +2,11 @@
 This repository contains the solution to tasks given by Kolomolo
 
 ## Basic Knowledge
-* "__main__.py" is used to specify entry point at which a program executes when packages or modules are executed as scripts. when a package or module is run as the main program using the python interpreter, __mian__.py file executes and serves as the starting point for the program. It allows for the code in the package or module to be executed as a standalone application rather than just a library.
+* `__main__.py` is used to specify entry point at which a program executes when packages or modules are executed as scripts. when a package or module is run as the main program using the python interpreter, `__mian__.py` file executes and serves as the starting point for the program. It allows for the code in the package or module to be executed as a standalone application rather than just a library.
 
-* To prevent code in module from being execute when imported, wrap the code (if __name__ == “__main__”: ) block into the function. Setting this means the module will be executed only when its is executed as main program not when imported.
+* To prevent code in module from being execute when imported, wrap the code (if `__name__ == “__main__”:` ) block into the function. Setting this means the module will be executed only when its is executed as main program not when imported.
 
-* __init__() method is the method that represents a class constructor in Python
+` __init__()` method is the method that represents a class constructor in Python
 
 * ".string format method," "comma method," "f-string method," "% format method" are options used to insert vale of a variable into a string.
 
@@ -22,8 +22,8 @@ Decorators can be used to add functionality to an existing function without modi
 
 ## Problem Solving
 This *[folder](https://github.com/WinnerOlapade/KOLOMOLO_TASK/tree/master/problem_solving/)* contains corrected *[problem_solving.py](https://github.com/WinnerOlapade/KOLOMOLO_TASK/tree/master/problem_solving/problem_solving.py)* code
-* Problem: File/code execution. the code refused to execute because the "if" statement in “line 41” ( "if __name__ == "main”:" ) wasn’t formatted properly.
-  Solution: Correct format - ( "if __name__ == “__main__”:" ) to call main function correctly.
+* Problem: File/code execution. the code refused to execute because the "if" statement in “line 41” ( `if __name__ == "main”:` ) wasn’t formatted properly.
+  Solution: Correct format - ( `if __name__ == “__main__”:` ) to call main function correctly.
 
 * Problem: AttributeError in line 17 (self.age == age) - the comparison operator (==) was used instead of assignment operator (=).
   Solution: Corrected to use the assignment “=“ operator.
@@ -31,8 +31,8 @@ This *[folder](https://github.com/WinnerOlapade/KOLOMOLO_TASK/tree/master/proble
 * Problem: line 32 ( x = Person(p["first_name"], p["age"], p["last_name"]) ) the arguments were in the incorrect order. 
   Solution: Corrected to ( x = Person(p["first_name"], p["last_name"], p["age"]) ) to print the ages as integers.
 
-* Problem: TypeError on line 25 ( "def increase_count()" ) increase_count definition needed a positional argument.
-  Solution: Corrected to ( "def increase_count(self)" ).
+* Problem: TypeError on line 25 ( `def increase_count()` ) increase_count definition needed a positional argument.
+  Solution: Corrected to ( `def increase_count(self)` ).
 
 * Added "for" statement in "main()" definition  
 ```
