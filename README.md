@@ -62,18 +62,15 @@ The Terraform folder **[REST_API](https://github.com/WinnerOlapade/KOLOMOLO_TASK
     - It also gives API permission to invoke the Lambda functions and, 
     - finally deploys the API getting back the output of GET and POST method urls.
 
+
 > API POST Method URL: "https://qc9g7i6iyj.execute-api.us-east-1.amazonaws.com/v1/users"
 
-**To make a POST Request, use:**
-```
-curl -X POST -H "Content-Type: application/json" -d '{"key1":"value1", "key2":"value2"}' {post_url}
-```
 **example body:**
 ```
 '{"first_name":"John", "age":"32"}'
 ```
 
-**working link**
+**Invocation**
 ```
 curl -X POST -H "Content-Type: application/json" -d '{"first_name":"John", "age":"32"}' https://qc9g7i6iyj.execute-api.us-east-1.amazonaws.com/v1/users
 ```
