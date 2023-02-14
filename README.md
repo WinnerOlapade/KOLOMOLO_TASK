@@ -48,12 +48,12 @@ to wait for thread to finish before proceeding so that "number of people created
 Creating REST API in AWS using AWS API Gateway, Lambda and DynamoDB. This task (Infrastructure) was created using Terraform to allow easy deployment and management of resources in Cloud environment.
 
 **Folder structure**
-- [python_codes](https://github.com/WinnerOlapade/KOLOMOLO_TASK/tree/master/rest_api/)** contains 2 zipped files needed in the Terraform file *[main.tf](https://github.com/WinnerOlapade/KOLOMOLO_TASK/tree/master/rest_api/python_codes/)
-- [main.tf](https://github.com/WinnerOlapade/KOLOMOLO_TASK/tree/master/rest_api/)** contains 2 zipped files needed in the Terraform file *[main.tf](https://github.com/WinnerOlapade/KOLOMOLO_TASK/tree/master/rest_api/main.tf)
-- [get_function.zip](https://github.com/WinnerOlapade/KOLOMOLO_TASK/tree/master/rest_api/)** contains 2 zipped files needed in the Terraform file *[main.tf](https://github.com/WinnerOlapade/KOLOMOLO_TASK/tree/master/rest_api/get_function.zip)
-- [post_function.zip](post_function.zip)
+- *[python_codes](https://github.com/WinnerOlapade/KOLOMOLO_TASK/tree/master/rest_api/)* contains 2 zipped files needed in the Terraform file *[main.tf](https://github.com/WinnerOlapade/KOLOMOLO_TASK/tree/master/rest_api/python_codes/)
+- [main.tf](https://github.com/WinnerOlapade/KOLOMOLO_TASK/tree/master/rest_api/)* contains 2 zipped files needed in the Terraform file *[main.tf](https://github.com/WinnerOlapade/KOLOMOLO_TASK/tree/master/rest_api/main.tf)
+- *[get_function.zip](https://github.com/WinnerOlapade/KOLOMOLO_TASK/tree/master/rest_api/)** contains 2 zipped files needed in the Terraform file *[main.tf](https://github.com/WinnerOlapade/KOLOMOLO_TASK/tree/master/rest_api/get_function.zip)
+- *[post_function.zip](post_function.zip)*
 
-The Terraform folder **[REST_API](https://github.com/WinnerOlapade/KOLOMOLO_TASK/tree/master/rest_api/)** contains 2 zipped files needed in the Terraform file *[main.tf](https://github.com/WinnerOlapade/KOLOMOLO_TASK/tree/master/rest_api/main.tf)* having 2 variables "account_id" and "main_region", can be executed with `terraform apply` and then a subsequent "yes" reply when prompted.
+The Terraform folder *[REST_API](https://github.com/WinnerOlapade/KOLOMOLO_TASK/tree/master/rest_api/)* contains 2 zipped files needed in the Terraform file *[main.tf](https://github.com/WinnerOlapade/KOLOMOLO_TASK/tree/master/rest_api/main.tf)* having 2 variables "account_id" and "main_region", can be executed with `terraform apply` and then a subsequent "yes" reply when prompted.
     Executing the terraform file:
     - takes the variables and creates a DynamoDB Table named "users",
     - creates 2 Lambda functions (GET and POST), 
