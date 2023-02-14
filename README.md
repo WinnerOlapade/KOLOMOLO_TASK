@@ -1,7 +1,7 @@
-# Candidate Solution to Tasks
+# Solution to Tasks
 This repository contains the solution to tasks given by Kolomolo
 
-## Basic Knowlw=edge
+## Basic Knowledge
 * "__main__.py" is used to specify entry point at which a program executes when packages or modules are executed as scripts. when a package or module is run as the main program using the python interpreter, __mian__.py file executes and serves as the starting point for the program. It allows for the code in the package or module to be executed as a standalone application rather than just a library.
 
 * To prevent code in module from being execute when imported, wrap the code (if __name__ == “__main__”: ) block into the function. Setting this means the module will be executed only when its is executed as main program not when imported.
