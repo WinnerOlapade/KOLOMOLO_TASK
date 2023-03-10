@@ -82,6 +82,11 @@ resource "aws_lambda_function" "post_function" {
   source_code_hash = filebase64sha256("post_function.zip")
 }
 
+resource "aws_lambda_function_url" "post_url" {
+  function_name      = aws_lambda_function.post_function.function_name
+  authorization_type = "NONE"
+}
+
 resource "aws_lambda_function" "get_function" {
   filename      = "get_function.zip"
   function_name = "get_function"
@@ -90,6 +95,11 @@ resource "aws_lambda_function" "get_function" {
   runtime       = "python3.9"
 
   source_code_hash = filebase64sha256("get_function.zip")
+}
+
+resource "aws_lambda_function_url" "get_url" {
+  function_name      = aws_lambda_function.get_function.function_name
+  authorization_type = "NONE"
 }
 
 # Creating REST API Gateway
@@ -192,4 +202,13 @@ output "get_url" {
 output "post_url" {
   value = "${aws_api_gateway_stage.api_stage.invoke_url}/users"
 
+}
+
+output "post_function_url" {
+  value      = aws_lambda_function_url.post_url.function_url
+  description = "Post function Url"
+}
+output "get_function_url" {
+  value      = aws_lambda_function_url.get_url.function_url
+  description = "Get function Url"
 }
