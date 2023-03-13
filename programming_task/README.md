@@ -1,0 +1,2 @@
+## Hanoi Towers
+The Python programe *[hanoi_towers.py](https://github.com/WinnerOlapade/KOLOMOLO_TASK/tree/master/programming_task/hanoi_towers.py)* when executed will ask for input filename and reads the user input from the file, follow the moves and if at any point of the game the player either does an illegal move or solves the puzzle, the program prints the required message to console and exits.
