@@ -13,9 +13,9 @@ This *[folder](https://github.com/WinnerOlapade/KOLOMOLO_TASK/tree/master/proble
   Solution: Corrected to ( `def increase_count(self)` ).
 
 * Added "for" statement in "main()" definition  
-```
-for thread in threads:
-    thread.join()
-``` 
-to wait for thread to finish before proceeding so that "number of people created" is printed always at the very end.
+    ```
+    for thread in threads:
+        thread.join()
+    ``` 
+    to wait for thread to finish before proceeding so that "number of people created" is printed always at the very end.
 
