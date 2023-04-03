@@ -46,16 +46,6 @@ resource "aws_iam_role" "lambda_role" {
 
 
 # Creating and Attaching Role Policy
-data "aws_iam_policy" "AWSLambdaBasicExecutionRoleA" {
-  arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
-}
-
-resource "aws_iam_role_policy_attachment" "lambda_policy" {
-  role       = aws_iam_role.lambda_role.name
-  policy_arn = data.aws_iam_policy.AWSLambdaBasicExecutionRoleA.arn
-
-}
-
 resource "aws_iam_role_policy" "dynamodb-lambda-policy" {
   name = "dynamodb_lambda_policy"
   role = aws_iam_role.lambda_role.id
@@ -71,6 +61,17 @@ resource "aws_iam_role_policy" "dynamodb-lambda-policy" {
   })
 }
 
+# Fetch arn of existing IAM policy 
+data "aws_iam_policy" "AWSLambdaBasicExecutionRoleA" {
+  arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+}
+
+# Attach the fetched IAM policy to createc role
+resource "aws_iam_role_policy_attachment" "lambda_policy" {
+  role       = aws_iam_role.lambda_role.name
+  policy_arn = data.aws_iam_policy.AWSLambdaBasicExecutionRoleA.arn
+
+}
 
 # Creating POST and GET Lambda functions
 resource "aws_lambda_function" "post_function" {
@@ -102,7 +103,7 @@ resource "aws_lambda_function_url" "get_url" {
   authorization_type = "NONE"
 }
 
-# Creating REST API Gateway
+// Creating REST API Gateway
 resource "aws_api_gateway_rest_api" "rest_api" {
   name        = "userManagement"
   description = "Rest Api with POST and GET methods"
@@ -112,7 +113,7 @@ resource "aws_api_gateway_rest_api" "rest_api" {
   }
 }
 
-# Creating REST API Gateway resources for POST and GET
+// Creating REST API Gateway resources for POST and GET
 resource "aws_api_gateway_resource" "api_resource" {
   rest_api_id = aws_api_gateway_rest_api.rest_api.id
   parent_id   = aws_api_gateway_rest_api.rest_api.root_resource_id
