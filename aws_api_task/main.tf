@@ -1,5 +1,6 @@
 variable "account_id" {
-  default = "266540020663"
+  # Pass Account ID value in as environmental variable. Set environment variable with [export TF_VAR_account_id="insert_value_here"]
+  type = string
 }
 
 variable "main_region" {
